@@ -8,7 +8,6 @@ function App() {
       <header className="App-header">
         <h1>Todo Stream</h1>
         <hr />
-        <p>This is the form area</p>
         <TodoList />
       </header>
     </div>
