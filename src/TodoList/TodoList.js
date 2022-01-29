@@ -12,6 +12,7 @@ class TodoList extends Component
     this.state = {
       items: []
     }
+    this.updateTodoList = this.updateTodoList.bind(this)
   }
   componentDidMount()
   {
@@ -24,8 +25,17 @@ class TodoList extends Component
     .then(response => response.json())
     .then(response_items => {
       this.setState({
-        items: response_items
+        items: response_items.reverse()
       })
+    })
+  }
+
+  updateTodoList(item)
+  {
+    let _items = this.state.items
+    _items.unshift(item)
+    this.setState({
+      items: _items
     })
   }
 
@@ -33,7 +43,7 @@ class TodoList extends Component
   {
     return(
       <div>
-        <TodoForm />
+        <TodoForm api_url={api_url} updateTodoList = {this.updateTodoList}/>
         <ul id='todo_list'>
          {this.state.items.map((item) => (
            <TodoItem key={item.id} item={item}/>
