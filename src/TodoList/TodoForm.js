@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import { TextField } from "@mui/material"
 import { Button } from "@mui/material"
+import { Grid } from "@mui/material"
 
 class TodoForm extends Component
 {
@@ -43,12 +44,22 @@ class TodoForm extends Component
   render()
   {
     return(
-      <div>
-        <form onSubmit={this.handleSubmit} id='todo_form' autoComplete='off'> 
-          <TextField id='task_input' label='Your task' variant='outlined' type='text' name='todo[task]' onChange={this.handleTaskChange}/>
-          <Button variant='contained' color='primary' type='submit'> Add task </Button>
-        </form>
-      </div>
+      <Grid container>
+        <Grid xs></Grid>
+        <Grid xs={10}>
+          <form onSubmit={this.handleSubmit} id='todo_form' autoComplete='off'> 
+            <Grid container>
+              <Grid xs={10}>
+                <TextField id='task_input' label='Your task' variant='outlined' type='text' name='todo[task]' onChange={this.handleTaskChange} fullWidth/>
+              </Grid>
+              <Grid xs={2}>
+                <Button variant='contained' color='primary' type='submit' style={{height: "100%"}}> Add task </Button>
+              </Grid>
+            </Grid>
+          </form>
+        </Grid>
+        <Grid xs></Grid>
+      </Grid>
     )
   }
 }
