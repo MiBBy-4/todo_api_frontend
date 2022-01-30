@@ -7,7 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const useStyles = makeStyles({
   root: {
-    height: '3em',
+    height: 'auto',
     padding: '2em',
     margin: '1em'
   }
@@ -24,6 +24,8 @@ export default function TodoItem(props) {
       <Grid item xs={9}>
         <Paper elevation={3} className = {classes.root}>
           {props.item.task}
+          <hr />
+          {props.item.body}
           <hr />
           <Button variant="contained" color="secondary" size="small" startIcon={<DeleteIcon />} onClick={handleDelete}> Delete task </Button>
         </Paper>

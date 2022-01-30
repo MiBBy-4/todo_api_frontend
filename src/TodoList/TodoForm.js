@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import { TextField } from "@mui/material"
 import { Button } from "@mui/material"
 import { Grid } from "@mui/material"
+import { TextareaAutosize } from "@mui/material"
 
 class TodoForm extends Component
 {
@@ -49,10 +50,13 @@ class TodoForm extends Component
         <Grid xs={10}>
           <form onSubmit={this.handleSubmit} id='todo_form' autoComplete='off'> 
             <Grid container>
-              <Grid xs={10}>
+              <Grid item xs={12}>
                 <TextField id='task_input' label='Your task' variant='outlined' type='text' name='todo[task]' onChange={this.handleTaskChange} fullWidth/>
               </Grid>
-              <Grid xs={2}>
+              <Grid item xs={12}>
+                <TextareaAutosize id='body_input' label='Task body' variant='outlined' type='text' name='todo[body]' style={{ width: '99.5%', marginTop: '5px' }} minRows={3} placeholder='Describe your todo item.'/>
+              </Grid>
+              <Grid item xs={2}>
                 <Button variant='contained' color='primary' type='submit' style={{height: "100%"}}> Add task </Button>
               </Grid>
             </Grid>
